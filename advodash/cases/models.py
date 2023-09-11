@@ -2,13 +2,22 @@ from django.db import models
 
 
 class Court(models.Model):
-    type = models.CharField(max_length=30)
+    court = models.CharField(max_length=30)
+    
+    def __str__(self) -> str:
+        return self.court
 
 class CaseType(models.Model):
     type = models.CharField(max_length=30)
 
+    def __str__(self) -> str:
+        return self.type
+
 class CaseStage(models.Model):
-    type = models.CharField(max_length=30)
+    stage = models.CharField(max_length=30)
+
+    def __str__(self) -> str:
+        return self.stage
 
 # Create your models here.
 class Case(models.Model):
