@@ -13,5 +13,10 @@ def index(request):
 
 def add_case(request):
     form = CaseForm()
+
+    if request.method == "POST":
+        form = CaseForm(request.POST)
+        if form.is_valid():
+            form.save()
     context = {"form": form}
     return render(request, "cases/add_case.html", context)
