@@ -1,5 +1,5 @@
 from django.template import loader
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Case, CaseStage, CaseType
 from .forms import CaseForm
 
@@ -18,5 +18,6 @@ def add_case(request):
         form = CaseForm(request.POST)
         if form.is_valid():
             form.save()
+
     context = {"form": form}
     return render(request, "cases/add_case.html", context)

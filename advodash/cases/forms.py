@@ -13,3 +13,5 @@ class CaseForm(ModelForm):
             'next_date': DateInput(attrs={'type': 'date'}),
             'party_email': EmailInput(attrs={'type': 'email'}),
         }
+    
+
