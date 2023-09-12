@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Advodash: Add Case
+{% endblock %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="case-details">
+            {{ form.title }}
+            {{ form.number }}
+            {{ form.court }}
+            {{ form.type }}
+            {{ form.stage }}
+            {{ form.tags }}
+            {{ form.filling_date }}
+            {{ form.appearing_lawyer }}
+            {{ form.remarks }}
+        </div>
+        <div class="party-details">
+            {{ form.party_name }}
+            {{ form.party_contact_no }}
+            {{ form.party_email }}
+            {{ form.party_alternative_contact_number }}
+            {{ form.party_adress }}
+        </div>
+        <div class="hearing-dates">
+            {{ form.prev_date }}
+            {{ form.next_date }}
+        </div>
+        <div class="case_history">
+            {{ form.case_history }}
+        </div>
+
+        <input class="btn btn-success" type="submit" name="Submit" value="Add Case">
+    </form>
+{% endblock %}

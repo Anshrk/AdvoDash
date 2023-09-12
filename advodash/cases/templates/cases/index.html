@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ section.title }} {% endblock %}
+
+{% block content %}
+{% for number in context %}
+    <h1>{{ number }} </h1>
+{% endfor %}
+{% endblock %}
