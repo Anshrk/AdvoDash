@@ -51,7 +51,7 @@ class Case(models.Model):
     case_history = models.TextField()
 
     def __str__(self) -> str:
-        return self.title
+        return f"{self.party_name}: {self.stage}"
 
     
 

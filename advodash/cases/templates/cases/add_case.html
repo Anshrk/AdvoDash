@@ -5,9 +5,21 @@
 {% endblock %}
 
 {% block content %}
-    <form action="" method="POST">
+    <form action="" class="form-inline" method="POST">
         {% csrf_token %}
-        <div class="case-details">
+        <div class="case-details form-row">
+            
+            <div class="col">
+            {{ form.title }}
+            </div>
+            <div class="col">
+            {{ form.number }}
+            </div>
+            <div class="col">
+            {{ form.court }}
+            </div>
+        </div>
+        <div>
             {{ form.title }}
             {{ form.number }}
             {{ form.court }}
