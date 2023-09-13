@@ -39,10 +39,17 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "cases.apps.CasesConfig", # Add cases modles
     "accounts.apps.AccountsConfig", # add custom user
+    'crispy_forms', # Add cooler forms
+    'crispy_bootstrap5', 
+
 ]
 
 # Auth user model
 AUTH_USER_MODEL = 'accounts.FirmUser'
+AUTHENTICATION_BACKENDs = ['accounts.backends.FirmBackend']
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

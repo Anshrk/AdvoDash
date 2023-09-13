@@ -9,6 +9,7 @@ class Position(models.Model):
 
 # Create your models here.
 class FirmUser(AbstractUser):
+    email = models.EmailField(unique=True)
     firm = models.ForeignKey(Firm, null=True, on_delete=models.CASCADE)
     position = models.ForeignKey(Position, null=True, on_delete=models.CASCADE)
 

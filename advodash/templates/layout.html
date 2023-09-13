@@ -2,32 +2,33 @@
 {% load static %}
 
 {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+    <link rel="shortcut icon" type="image/ico" href="{% static 'images/favicon.ico' %}" >
     {% block title %}
     {% endblock %}
 {% endblock %}
-
 {% block body %}
-        <nav class="bg-light border navbar navbar-expand-md navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/"><img src="{% static 'images/brand-icon.png' %}" height="30" width="30" alt="" srcset=""></a>
-                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="navbar-nav me-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/cases/add/">All cases</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/cases/">Add New Case</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/buy">Search Case</a></li>
-
-                        </ul>
-                        <ul class="navbar-nav ms-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
-                        </ul>
-                </div>
+    <nav class="bg-light border navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="{% static 'images/brand-icon.png' %}" height="30" width="30" alt="" srcset=""></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/cases/add/">All cases</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/cases/add">Add New Case</a></li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
             </div>
-        </nav>
-
-
+        </div>
+    </nav>
 
     <main>
         {% block content %}
@@ -38,5 +39,5 @@
         {% block footer %}
         {% endblock %}
     </footer>
-{% endblock %}
 
+{% endblock %}
