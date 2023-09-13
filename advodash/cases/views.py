@@ -1,11 +1,9 @@
 from django.template import loader
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Case, CaseStage, CaseType
 from .forms import CaseForm
 
 # Create your views here.
-@login_required(login_url="/accounts/login")
 def index(request):
     context = {
         "nothing": ['1', '2']
