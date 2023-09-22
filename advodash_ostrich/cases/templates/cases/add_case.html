@@ -8,7 +8,6 @@
 {% load crispy_forms_tags %}
     <form action="" class="form-inline" method="POST">
         {% csrf_token %}
-        {{ form | crispy }}
-        <input class="btn btn-success" type="submit" name="Submit" value="Add Case">
+        {{ form|crispy }}
     </form>
 {% endblock %}

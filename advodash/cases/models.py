@@ -1,29 +1,32 @@
 from django.db import models
 
 
-class Court(models.Model):
-    court = models.CharField(max_length=30)
-    
-    def __str__(self) -> str:
-        return self.court
-
 class CaseType(models.Model):
-    type = models.CharField(max_length=30)
-
-    def __str__(self) -> str:
+    type = models.CharField(max_length=50)
+    
+    def __str__(self):
         return self.type
 
 class CaseStage(models.Model):
-    stage = models.CharField(max_length=30)
-
-    def __str__(self) -> str:
+    stage = models.CharField(max_length=50)
+    
+    def __str__(self):
         return self.stage
 
+class Court(models.Model):
+    court = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.court
+
 # Create your models here.
-class Case(models.Model):
+class Cases(models.Model):
     title = models.CharField(max_length=255)
     number = models.BigIntegerField()
+    year = models.IntegerField()
+
     court = models.ForeignKey(Court, on_delete=models.CASCADE)
+    # court_complex = models.TextField()
     type = models.ForeignKey(CaseType, on_delete=models.CASCADE)
     stage = models.ForeignKey(CaseStage, on_delete=models.CASCADE)
 
@@ -35,30 +38,21 @@ class Case(models.Model):
 
 
     # Party Details
-    party_name = models.CharField(max_length=30)
+    for_party_name = models.CharField(max_length=30)
+
     party_contact_no = models.CharField(max_length=15)
     party_email = models.CharField(max_length=40, blank=True, default="")
     party_alternative_contact_no = models.CharField(max_length=14, blank=True, default="")
     party_adress = models.TextField(blank=True, default="")
 
     # Hearing Dates
-    prev_date = models.DateField()
     next_date = models.DateField(null=True)
 
     # Case files
 
     # Case history
-    case_history = models.TextField()
+    additional_comments = models.TextField()
+
 
     def __str__(self) -> str:
         return f"{self.party_name}: {self.stage}"
-
-    
-
-
-
-
-    
-
-
-

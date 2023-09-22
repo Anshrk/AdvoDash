@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-iuv#bp5=cir)(=vf!7nykfc*6rxg%(uu681$69i8r#5l0a#%i9"
+SECRET_KEY = "django-insecure-@ldbgmqx$fz%@u9#lo47jx)$dhn+4__!k_0v#!_)5&q1j0&+ln"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,9 +37,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "accounts",
-    "cases.apps.CasesConfig",
+    "cases.apps.CasesConfig", # Add cases modles
+    "accounts.apps.AccountsConfig", # add custom user
+    'crispy_forms', # Add cooler forms
+    'crispy_bootstrap5', 
+
 ]
+
+# Auth user model
+AUTH_USER_MODEL = 'accounts.FirmUser'
+AUTHENTICATION_BACKENDs = ['accounts.backends.FirmBackend']
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -51,14 +61,14 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-AUTH_USER_MODEL = 'accounts.User'
-
 ROOT_URLCONF = "advodash.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -120,6 +130,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+# settings.py
+STATICFILES_DIRS = [BASE_DIR / "static"]  # new
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
