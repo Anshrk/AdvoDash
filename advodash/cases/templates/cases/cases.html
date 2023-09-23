@@ -1,0 +1,33 @@
+{% extends 'nav.html' %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/tables.css' %}">
+{% endblock %}
+
+{% block title %}
+    All Cases
+{% endblock %}
+
+
+{% block content %}
+    <table class="case-list">
+        <thead class="case-list-header">
+        <tr class="case-list-row">
+            <th class="case-list-head">Title</th>
+            <th class="case-list-head">Number</th>
+            <th class="case-list-head">Year</th>
+        </tr>
+        </thead>
+        <tbody class="case-list-body">
+            {% for case in object_list %}
+                <tr class="case-list-row">
+                    <td class="case-list-data">{{case.title}}</td>
+                    <td class="case-list-data">{{case.number}}</td>
+                    <td class="case-list-data">{{case.year}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

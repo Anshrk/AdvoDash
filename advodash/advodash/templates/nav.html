@@ -7,7 +7,7 @@
           <!-- ==== NAVBAR ==== -->
           <nav class="nav">
             <div class="logo">
-              <h2>Advodash.</h2>
+              <a href="/"><h2>Advodash.</h2></a>
             </div>
     
             <div class="nav_menu" id="nav_menu">
@@ -17,14 +17,20 @@
     
               <ul class="nav_menu_list">
                 <li class="nav_menu_item">
-                  <a href="#" class="nav_menu_link">All Cases</a>
+                  <a href="/cases" class="nav_menu_link">All Cases</a>
                 </li>
                 <li class="nav_menu_item">
-                  <a href="#" class="nav_menu_link">Add Case</a>
+                  <a href="/add" class="nav_menu_link">Add Case</a>
                 </li>
-                <li class="nav_menu_item">
-                  <a href="#" class="nav_menu_link">Logout</a>
-                </li>
+                {% if request.user.is_authenticated %}
+                  <li class="nav_menu_item">
+                    <a href="/accounts/logout" class="nav_menu_link">Logout</a>
+                  </li>
+                {% else %}
+                  <li class="nav_menu_item">
+                    <a href="/accounts/login" class="nav_menu_link">Login</a>
+                  </li>
+                {% endif %}
               </ul>
             </div>
     

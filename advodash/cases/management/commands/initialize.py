@@ -10,13 +10,16 @@ class Command(BaseCommand):
         with open('cases/management/commands/case_types.csv') as file:
             reader = csv.reader(file)
             for line in reader:
+                print(line[0])
                 CaseType(type=line[0]).save()
         with open('cases/management/commands/courts.csv') as file:
             reader = csv.reader(file)
             for line in reader:
+                print(line[0])
                 Court(court=line[0]).save()
         with open('cases/management/commands/case_stage.csv') as file:
             reader = csv.reader(file)
             for line in reader:
+                print(line[0])
                 CaseStage(stage=line[0]).save()
             

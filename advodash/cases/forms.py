@@ -11,7 +11,7 @@ class CaseForm(ModelForm):
         model = Cases
         fields = '__all__' # Create a field with all the users
         widgets = {
-            'title': TextInput(attrs={'placeholder': 'Case-title'}),
+            'title': TextInput(attrs={'class': 'form-control', 'placeholder': 'Case-title'}),
             'number': NumberInput(attrs={'placeholder': 'Case Number'}),
             'filling_date': DateInput(attrs={'placeholder': 'Filling-Date', 'type': 'date'}),
             'prev_date': DateInput(attrs={'type': 'date'}),

@@ -2,26 +2,26 @@ from django.db import models
 
 
 class CaseType(models.Model):
-    type = models.CharField(max_length=50)
+    type = models.CharField(max_length=100)
     
     def __str__(self):
         return self.type
 
 class CaseStage(models.Model):
-    stage = models.CharField(max_length=50)
+    stage = models.CharField(max_length=60)
     
     def __str__(self):
         return self.stage
 
 class Court(models.Model):
-    court = models.CharField(max_length=50)
+    court = models.CharField(max_length=60)
     
     def __str__(self):
         return self.court
 
 # Create your models here.
 class Cases(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=250)
     number = models.BigIntegerField()
     year = models.IntegerField()
 
@@ -32,7 +32,7 @@ class Cases(models.Model):
 
     tags = models.CharField(max_length=100, blank=True)
     filling_date = models.DateField()
-    appearing_lawyer = models.CharField(max_length=255)
+    appearing_lawyer = models.CharField(max_length=250)
     remarks = models.TextField()
 
 
@@ -54,5 +54,9 @@ class Cases(models.Model):
     additional_comments = models.TextField()
 
 
+    def case_type_short(self):
+        print(self.type)
+        return self.type.split(" ")[0]
+
     def __str__(self) -> str:
-        return f"{self.party_name}: {self.stage}"
+        return f"{self.for_party_name}: {self.stage}"
