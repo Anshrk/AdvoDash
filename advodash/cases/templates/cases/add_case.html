@@ -1,0 +1,15 @@
+{% extends 'nav.html' %}
+
+
+{% block title %}
+    Add Case
+{% endblock %}
+
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <table>{{ form.as_table }}</table>
+        <button type="submit" action="" class="btn documentation_btn" href="">Add Cases</button>
+    </form>
+{% endblock %}

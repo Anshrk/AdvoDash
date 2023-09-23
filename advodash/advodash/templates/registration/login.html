@@ -1,0 +1,19 @@
+{% extends 'nav.html' %}
+
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+<section class="wrapper">
+    <div class="container">
+        <h3 class="main-heading">Login</h3>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn view_more_btn" type="submit" value="submit">
+        </form>
+    </div>
+</section>
+{% endblock %}
