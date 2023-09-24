@@ -37,6 +37,7 @@ class Cases(models.Model):
 
 
 
+
     # Party Details
     for_party_name = models.CharField(max_length=30)
 
@@ -53,10 +54,11 @@ class Cases(models.Model):
     # Case history
     additional_comments = models.TextField()
 
+    list_display = ("case_type_short", "title", "stage", "next_date")
 
     def case_type_short(self):
         print(self.type)
-        return self.type.split(" ")[0]
+        return str(self.type).split(" ")[0] + "|" + str(self.number) + "|" + str(self.year)
 
     def __str__(self) -> str:
         return f"{self.for_party_name}: {self.stage}"

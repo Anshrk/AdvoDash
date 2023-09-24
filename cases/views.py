@@ -15,6 +15,7 @@ class CaseView(ListView):
 
     template_name = 'cases/cases.html'
     list_display = ("case_id")
+    
 
 
 
